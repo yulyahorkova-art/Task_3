@@ -37,14 +37,11 @@ public class ConstructorPage extends BasePage {
     @Step("Перейти в раздел 'Булки'")
     public void goToBuns() {
         try {
-            // Ждём кликабельности родительского div
             waitForElementClickable(bunTab);
             WebElement tab = driver.findElement(bunTab);
-            // Пробуем кликнуть через JavaScript, если обычный клик не работает
             try {
                 tab.click();
             } catch (Exception e) {
-                // Если обычный клик не работает, используем JavaScript
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tab);
             }
             System.out.println("Переход в раздел 'Булки'");
@@ -136,33 +133,6 @@ public class ConstructorPage extends BasePage {
             WebElement tab = driver.findElement(By.xpath(".//span[text()='Начинки']/parent::div"));
             String tabClass = tab.getAttribute("class");
             return tabClass != null && tabClass.contains("tab_tab_type_current");
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Step("Проверить видимость раздела 'Булки'")
-    public boolean isBunSectionDisplayed() {
-        try {
-            return driver.findElement(bunSection).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Step("Проверить видимость раздела 'Соусы'")
-    public boolean isSauceSectionDisplayed() {
-        try {
-            return driver.findElement(sauceSection).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Step("Проверить видимость раздела 'Начинки'")
-    public boolean isFillingSectionDisplayed() {
-        try {
-            return driver.findElement(fillingSection).isDisplayed();
         } catch (Exception e) {
             return false;
         }

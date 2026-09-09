@@ -16,6 +16,7 @@
         <selenium.version>4.24.0</selenium.version>
         <allure.version>2.24.0</allure.version>
         <junit.version>5.10.2</junit.version>
+        <webdrivermanager.version>5.9.2</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -34,7 +35,7 @@
             <scope>test</scope>
         </dependency>
 
-         <!-- Allure JUnit 5 -->
+        <!-- Allure JUnit 5 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
@@ -69,6 +70,14 @@
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- WebDriverManager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -94,7 +103,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
 
             <plugin>
                 <groupId>io.qameta.allure</groupId>

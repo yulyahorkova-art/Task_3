@@ -70,16 +70,6 @@ public class RegisterPage extends BasePage {
         clickRegister();
     }
 
-    @Step("Проверить, что открыта страница регистрации")
-    public boolean isRegisterPageDisplayed() {
-        try {
-            waitForElementVisible(registerHeader);
-            return driver.findElement(registerHeader).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     @Step("Дождаться загрузки страницы регистрации")
     public void waitForRegisterPageLoad() {
         waitForElementVisible(registerHeader);
